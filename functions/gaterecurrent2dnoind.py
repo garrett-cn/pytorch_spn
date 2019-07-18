@@ -37,4 +37,11 @@ class GateRecurrent2dnoindFunction(Function):
 
         gaterecurrent2d.gaterecurrent2dnoind_backward_cuda(self.horizontal, self.reverse, self.output, grad_output, self.X, self.G1, self.G2, self.G3, grad_X, grad_G1, grad_G2, grad_G3)
 
+        del self.X
+        del self.G1
+        del self.G2
+        del self.G3
+        del self.output
+        del self.hiddensize
+
         return grad_X, grad_G1, grad_G2, grad_G3
